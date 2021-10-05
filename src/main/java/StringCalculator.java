@@ -6,10 +6,6 @@ public class StringCalculator {
             return 0;
         }
 
-        if (!input.contains(",")) {
-            return Integer.parseInt(input);
-        }
-
         String[] arr = input.split("[\n,]");
 
         return Arrays.stream(arr).mapToInt(number -> Integer.parseInt(number.trim())).sum();

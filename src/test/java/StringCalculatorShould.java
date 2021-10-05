@@ -40,4 +40,11 @@ public class StringCalculatorShould {
 
         assertThat(actual).isEqualTo(6);
     }
+
+    @Test
+    void return_sum_of_two_numbers_separated_by_new_line() {
+        int actual = calculator.add("1\n2");
+
+        assertThat(actual).isEqualTo(3);
+    }
 }
