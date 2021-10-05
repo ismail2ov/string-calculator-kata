@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class StringCalculator {
 
@@ -19,9 +21,23 @@ public class StringCalculator {
     }
 
     private int add(String input, String delimiter) {
+        List<String> negativesList = new ArrayList<>();
         String[] arr = input.split(delimiter);
 
-        return Arrays.stream(arr).mapToInt(number -> Integer.parseInt(number.trim())).sum();
+        int sum = Arrays.stream(arr)
+                .mapToInt(number -> Integer.parseInt(number.trim()))
+                .peek(n -> {
+                    if (n < 0) {
+                        negativesList.add(String.valueOf(n));
+                    }
+                })
+                .sum();
+
+        if (negativesList.size() > 0) {
+            throw new NumberFormatException("negatives not allowed: " + String.join(",", negativesList));
+        }
+
+        return sum;
     }
 
     private int add(String inputWithDelimiter, int newLineIndex) {
