@@ -26,6 +26,7 @@ public class StringCalculator {
 
         int sum = Arrays.stream(arr)
                 .mapToInt(number -> Integer.parseInt(number.trim()))
+                .filter( n -> n <= 1_000)
                 .peek(n -> {
                     if (n < 0) {
                         negativesList.add(String.valueOf(n));

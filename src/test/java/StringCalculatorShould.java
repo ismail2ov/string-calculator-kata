@@ -62,4 +62,11 @@ public class StringCalculatorShould {
                 .isExactlyInstanceOf(NumberFormatException.class)
                 .hasMessageContaining("negatives not allowed: -9,-1");
     }
+
+    @Test
+    void return_sum_of_numbers_ignoring_bigger_than_1000() {
+        int actual = calculator.add("2\n1001");
+
+        assertThat(actual).isEqualTo(2);
+    }
 }
