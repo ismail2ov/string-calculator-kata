@@ -47,4 +47,11 @@ public class StringCalculatorShould {
 
         assertThat(actual).isEqualTo(3);
     }
+
+    @Test
+    void return_sum_of_numbers_with_custom_delimiter() {
+        int actual = calculator.add("//;\n1;2");
+
+        assertThat(actual).isEqualTo(3);
+    }
 }

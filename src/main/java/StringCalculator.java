@@ -6,7 +6,14 @@ public class StringCalculator {
             return 0;
         }
 
-        String[] arr = input.split("[\n,]");
+        String delimiter = "[\n,]";
+
+        int newLineIndex = input.indexOf("\n");
+        if ((newLineIndex > 1) && (input.startsWith("//"))) {
+            delimiter = input.substring(2, newLineIndex);
+            input = input.substring(newLineIndex + 1);
+        }
+        String[] arr = input.split(delimiter);
 
         return Arrays.stream(arr).mapToInt(number -> Integer.parseInt(number.trim())).sum();
     }
