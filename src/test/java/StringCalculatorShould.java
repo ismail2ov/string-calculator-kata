@@ -12,4 +12,13 @@ public class StringCalculatorShould {
 
         assertThat(actual).isEqualTo(0);
     }
+
+    @Test
+    void return_same_number_if_string_contains_single_number() {
+        StringCalculator calculator = new StringCalculator();
+
+        int actual = calculator.add("1");
+
+        assertThat(actual).isEqualTo(1);
+    }
 }
