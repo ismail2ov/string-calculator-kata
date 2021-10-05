@@ -26,4 +26,11 @@ public class StringCalculatorShould {
 
         assertThat(actual).isEqualTo(3);
     }
+
+    @Test
+    void return_sum_of_six_comma_separated_numbers() {
+        int actual = calculator.add("6, 4, 8, 45, 51, 0");
+
+        assertThat(actual).isEqualTo(114);
+    }
 }

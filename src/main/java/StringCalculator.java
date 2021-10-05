@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class StringCalculator {
     public int add(String input) {
         if (input.isEmpty()) {
@@ -10,6 +12,6 @@ public class StringCalculator {
 
         String[] arr = input.split(",");
 
-        return Integer.parseInt(arr[0].trim()) + Integer.parseInt(arr[1].trim());
+        return Arrays.stream(arr).mapToInt(number -> Integer.parseInt(number.trim())).sum();
     }
 }
