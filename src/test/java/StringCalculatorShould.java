@@ -19,4 +19,11 @@ public class StringCalculatorShould {
 
         assertThat(actual).isEqualTo(1);
     }
+
+    @Test
+    void return_sum_of_two_numbers_separated_by_commas() {
+        int actual = calculator.add("1,2");
+
+        assertThat(actual).isEqualTo(3);
+    }
 }

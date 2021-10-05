@@ -3,6 +3,13 @@ public class StringCalculator {
         if (input.isEmpty()) {
             return 0;
         }
-        return Integer.parseInt(input);
+
+        if (!input.contains(",")) {
+            return Integer.parseInt(input);
+        }
+
+        String[] arr = input.split(",");
+
+        return Integer.parseInt(arr[0].trim()) + Integer.parseInt(arr[1].trim());
     }
 }
