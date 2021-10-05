@@ -33,4 +33,11 @@ public class StringCalculatorShould {
 
         assertThat(actual).isEqualTo(114);
     }
+
+    @Test
+    void return_sum_of_numbers_separated_by_commas_or_new_lines() {
+        int actual = calculator.add("1\n2,3");
+
+        assertThat(actual).isEqualTo(6);
+    }
 }
