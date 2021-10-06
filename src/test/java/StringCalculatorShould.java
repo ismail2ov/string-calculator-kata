@@ -76,4 +76,11 @@ public class StringCalculatorShould {
 
         assertThat(actual).isEqualTo(6);
     }
+
+    @Test
+    void return_sum_of_numbers_with_multiples_delimiters() {
+        int actual = calculator.add("//[*][%]\n1*2%3");
+
+        assertThat(actual).isEqualTo(6);
+    }
 }

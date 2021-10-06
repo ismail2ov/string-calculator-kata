@@ -44,7 +44,9 @@ public class StringCalculator {
     private int add(String inputWithDelimiter, int newLineIndex) {
         String delimiter = inputWithDelimiter.substring(DELIMITER_PREFIX.length(), newLineIndex);
         if (delimiter.startsWith("[") && delimiter.endsWith("]")) {
-            delimiter = "[\\" + delimiter.substring(1, delimiter.length() - 1) + "]+";
+            delimiter = delimiter.replaceAll("\\[", "");
+            delimiter = delimiter.replaceAll("]","");
+            delimiter = "[\\s" + delimiter + "]+";
         }
         String input = inputWithDelimiter.substring(newLineIndex + 1);
         return add(input, delimiter);
