@@ -26,7 +26,7 @@ public class StringCalculator {
 
         int sum = Arrays.stream(arr)
                 .mapToInt(number -> Integer.parseInt(number.trim()))
-                .filter( n -> n <= 1_000)
+                .filter(n -> n <= 1_000)
                 .peek(n -> {
                     if (n < 0) {
                         negativesList.add(String.valueOf(n));
@@ -43,6 +43,9 @@ public class StringCalculator {
 
     private int add(String inputWithDelimiter, int newLineIndex) {
         String delimiter = inputWithDelimiter.substring(DELIMITER_PREFIX.length(), newLineIndex);
+        if (delimiter.startsWith("[") && delimiter.endsWith("]")) {
+            delimiter = "[\\" + delimiter.substring(1, delimiter.length() - 1) + "]+";
+        }
         String input = inputWithDelimiter.substring(newLineIndex + 1);
         return add(input, delimiter);
     }
